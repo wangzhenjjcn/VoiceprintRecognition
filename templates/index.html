@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>声纹识别与自然拼读合成</title>
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>声纹识别与自然拼读合成</h1>
+      <p class="subtitle">录制或上传您的声音，建模后输入文字生成合成语音</p>
+    </header>
+
+    <section class="card">
+      <h2>步骤 1：录音或上传音频（10-30 秒推荐）</h2>
+      <div class="recorder">
+        <div class="btn-group">
+          <button id="btnStart" class="btn primary">开始录音</button>
+          <button id="btnStop" class="btn" disabled>停止</button>
+          <button id="btnPlay" class="btn" disabled>回放</button>
+          <button id="btnUploadRecorded" class="btn" disabled>上传录音</button>
+        </div>
+        <div class="hint">或选择本地文件：
+          <input type="file" id="fileInput" accept="audio/*" />
+          <button id="btnUploadFile" class="btn">上传文件</button>
+        </div>
+        <audio id="recordedAudio" controls class="audio" style="display:none"></audio>
+        <div id="uploadStatus" class="status"></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>步骤 2：输入要合成的文字</h2>
+      <textarea id="textInput" rows="4" placeholder="请输入要合成的文字"></textarea>
+      <div class="btn-group">
+        <select id="langSelect">
+          <option value="zh-cn" selected>中文</option>
+          <option value="en">English</option>
+          <option value="ja">日本語</option>
+        </select>
+        <button id="btnSynthesize" class="btn primary" disabled>合成语音</button>
+      </div>
+      <div id="synthStatus" class="status"></div>
+      <audio id="synthAudio" controls class="audio" style="display:none"></audio>
+      <a id="downloadLink" class="download" href="#" download style="display:none">下载合成音频</a>
+    </section>
+
+    <footer>
+      <p>提示：若首次合成时间较长，请耐心等待（模型加载较慢）。</p>
+    </footer>
+  </div>
+
+  <script src="/static/js/app.js"></script>
+</body>
+</html>

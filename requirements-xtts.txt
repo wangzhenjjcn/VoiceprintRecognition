@@ -1,0 +1,5 @@
+# 可选：在 Python 3.10–3.12 环境使用下列依赖启用 XTTS 零样本克隆
+# 建议新建虚拟环境并切换 Python 版本后安装
+
+TTS==0.22.0
+# 如需 GPU 加速，请安装与你 CUDA 版本匹配的 torch/torchaudio
